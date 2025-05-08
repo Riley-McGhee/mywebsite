@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <button class="toggle-button" onclick="toggleTheme()">🌓 Theme</button>
   <header>
     <h1>Welcome to My Website</h1>
     <p>This is a simple website hosted with GitHub Pages.</p>
@@ -31,5 +32,18 @@
   <footer>
     <p>&copy; 2025 My Website. All rights reserved.</p>
   </footer>
+  <script>
+  // Check saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', mode);
+  }
+</script>
+
 </body>
 </html>
